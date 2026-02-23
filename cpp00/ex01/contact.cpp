@@ -1,8 +1,8 @@
 #include "phonebook.hpp"
 
-contact::contact(void)
-{
-}
+// contact::contact(void)
+// {
+// }
 int contact::getIndex()
 {
 	return(index);
@@ -18,6 +18,10 @@ string contact::getLastName()
 string contact::getNickName()
 {
 	return(nickName);
+}
+string contact::getPhoneNumber()
+{
+	return(phoneNumber);
 }
 void contact::setIndex(int i)
 {
@@ -43,4 +47,12 @@ void contact::setNickName(string str)
 		nickName = str.substr(0,9) + ".";
 	else 
 		nickName = str;
+}
+
+void contact::setPhoneNumber(string str)
+{
+	if(str.length()> 10)
+		phoneNumber = str.substr(0,9) + ".";
+	else 
+		phoneNumber = str;
 }

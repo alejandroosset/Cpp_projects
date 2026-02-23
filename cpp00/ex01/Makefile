@@ -18,9 +18,10 @@ CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
 NAME = phonebook
-SRC = phonebook.cpp
+SRC = phonebook.cpp contact.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
+HEADER = phonebook.hpp
 
 all: $(NAME)
 
