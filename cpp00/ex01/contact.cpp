@@ -7,52 +7,48 @@ int contact::getIndex()
 {
 	return(index);
 }
-string contact::getFirstName()
+std::string contact::getFirstName()
 {
 	return(firstName);
 }
-string contact::getLastName()
+std::string contact::getLastName()
 {
 	return(lastName);
 }
-string contact::getNickName()
+std::string contact::getNickName()
 {
 	return(nickName);
 }
-string contact::getPhoneNumber()
+std::string contact::getPhoneNumber()
 {
 	return(phoneNumber);
+}
+std::string contact::getDarkSecret()
+{
+	return(darkSecret);
 }
 void contact::setIndex(int i)
 {
 	index = i;
 }
-void contact::setFirstName(string str)
+void contact::setFirstName(std::string str)
 {
-	if(str.length()> 10)
-		firstName = str.substr(0,9) + ".";
-	else 
-		firstName = str;
+	firstName = str;
 }
-void contact::setLastName(string str)
+void contact::setLastName(std::string str)
 {
-	if(str.length()> 10)
-		lastName = str.substr(0,9) + ".";
-	else 
-		lastName = str;
+	lastName = str;
 }
-void contact::setNickName(string str)
+void contact::setNickName(std::string str)
 {
-	if(str.length()> 10)
-		nickName = str.substr(0,9) + ".";
-	else 
-		nickName = str;
+	nickName = str;
 }
 
-void contact::setPhoneNumber(string str)
+void contact::setPhoneNumber(std::string str)
 {
-	if(str.length()> 10)
-		phoneNumber = str.substr(0,9) + ".";
-	else 
-		phoneNumber = str;
+	phoneNumber = str;
+}
+void contact::setDarkSecret(std::string str)
+{
+	darkSecret = str;
 }
