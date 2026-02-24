@@ -2,9 +2,8 @@
 #define PHONEBOOK_HPP
 
 # include <iostream>
-# include <string>
-#include <iomanip>
-
+# include <iomanip>
+# include <sstream>
 
 class contact
 {
@@ -39,7 +38,9 @@ class phonebook
 	public:
 	phonebook();
 	void phonebookAdd();
+	void displayCell(std::string str);
 	void phonebookSearch();
 	void phonebookDisplayList();
 };
+
 #endif

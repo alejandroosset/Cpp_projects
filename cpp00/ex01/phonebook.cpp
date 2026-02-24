@@ -14,6 +14,7 @@ int phonebook::checkNumberInput(std::string str)
     }
     return(0);
 }
+
 void phonebook::phonebookAdd()
 {
     std::string str;
@@ -48,7 +49,7 @@ void phonebook::phonebookAdd()
 		{
 			if(checkNumberInput(str) == 1)
 			{
-            	std::cout<<"The number must contain only numbers";
+            	std::cout<<"The number must contain only numbers.";
 				str = "";
 			}
 			else
@@ -65,56 +66,66 @@ void phonebook::phonebookAdd()
 	this->index++;
 	std::cout << "Conatct added successfully\n";
 }
+
+void phonebook::displayCell(std::string str)
+{
+	if(str.length() > 10)
+		std::cout << str.substr(0,9) << ".";
+	else
+	{
+		std::cout << std::setw(10);
+		std::cout << str;
+	}
+	std::cout << "|";
+}
+
 void phonebook::phonebookDisplayList()
 {
 	std::string str;
-	std::cout << "|     Index|First Name| Last Name|  nickname|\n";
+	std::cout << "|     Index|First Name| Last Name|  nickname|" << std::endl;
 	for (int i = 0; i < this->index; i++)
 	{
 			std::cout << "|..........|..........|..........|..........|\n|";
 			std::cout << std::setw(10);
-			std::cout << phonebook::contacts[i].getIndex() << "|";
-			if(phonebook::contacts[i].getFirstName().length() > 10)
-			{
-				std::cout << std::setw(9);
-				std::cout << phonebook::contacts[i].getFirstName().substr(0,9) << ".|";
-			}
-			else
-			{
-				std::cout << std::setw(10);
-				std::cout << phonebook::contacts[i].getFirstName() << "|";
-			}
-			if(phonebook::contacts[i].getLastName().length() > 10)
-			{
-				std::cout << std::setw(9);
-				std::cout << phonebook::contacts[i].getLastName().substr(0,9) << ".|";
-			}
-			else
-			{
-				std::cout << std::setw(10);
-				std::cout << phonebook::contacts[i].getLastName() << "|";
-			}
-			if(phonebook::contacts[i].getNickName().length() > 10)
-			{
-				std::cout << std::setw(9);
-				std::cout << phonebook::contacts[i].getNickName().substr(0,9) << ".|" << std::endl;
-			}
-			else
-			{
-				std::cout << std::setw(10);
-				std::cout << phonebook::contacts[i].getNickName() << "|" << std::endl;
-			}
+			std::cout << i + 1 << "|";
+			displayCell(phonebook::contacts[i].getFirstName());
+			displayCell(phonebook::contacts[i].getLastName());
+			displayCell(phonebook::contacts[i].getNickName());
+			std::cout << std::endl;
 	}
 }
+
 void phonebook::phonebookSearch()
 {
+	std::string input;
+	std::stringstream convert;
+	int i = 0;
 	if(this->index == 0)
 	{
-		std::cout << "There is no contact, add contacts to display them" << std::endl;
+		std::cout << "There is no contacts, add contacts to display them" << std::endl;
 		return;
 	}
 	if(this->index > 8)
 		this->index = 8;
 	this->phonebookDisplayList();
-	
+	while (i < 1 || i > this->index)
+	{
+		std::cout << "Enter the index of the contact you want to display: ";
+		std::cin >> input;
+		if(checkNumberInput(input) == 0)
+		{
+			convert << input;
+			convert >> i;
+			if(i < 1 || i > this->index)
+			{
+				std::cout << "The contact does not exist." << std::endl;
+				std::cin.clear();
+			}
+		}
+	}
+	std::cout << this->contacts[i - 1].getFirstName() << std::endl;
+	std::cout << this->contacts[i - 1].getLastName() << std::endl;
+	std::cout << this->contacts[i - 1].getNickName() << std::endl;
+	std::cout << this->contacts[i - 1].getPhoneNumber() << std::endl;
+	std::cout << this->contacts[i - 1].getDarkSecret() << std::endl;		
 }
