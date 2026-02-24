@@ -63,6 +63,7 @@ void phonebook::phonebookAdd()
 		if (getline(std::cin, str))
 			this->contacts[this->index % 8].setDarkSecret(str);
 	}
+	std::cout << this->index % 8;
 	this->index++;
 	std::cout << "Conatct added successfully\n";
 }
@@ -82,8 +83,13 @@ void phonebook::displayCell(std::string str)
 void phonebook::phonebookDisplayList()
 {
 	std::string str;
+	int len;
+	if(this->index > 8)
+		len = 8;
+	else
+		len = this->index;
 	std::cout << "|     Index|First Name| Last Name|  nickname|" << std::endl;
-	for (int i = 0; i < this->index; i++)
+	for (int i = 0; i < len; i++)
 	{
 			std::cout << "|..........|..........|..........|..........|\n|";
 			std::cout << std::setw(10);
@@ -100,13 +106,12 @@ void phonebook::phonebookSearch()
 	std::string input;
 	std::stringstream convert;
 	int i = 0;
+	
 	if(this->index == 0)
 	{
 		std::cout << "There is no contacts, add contacts to display them" << std::endl;
 		return;
 	}
-	if(this->index > 8)
-		this->index = 8;
 	this->phonebookDisplayList();
 	while (i < 1 || i > this->index)
 	{
