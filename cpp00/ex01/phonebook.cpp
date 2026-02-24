@@ -120,6 +120,9 @@ void phonebook::phonebookSearch()
 			{
 				std::cout << "The contact does not exist." << std::endl;
 				std::cin.clear();
+				input.clear();
+				convert.clear();
+				i = 0;
 			}
 		}
 	}
