@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 17:49:24 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/04/08 17:49:25 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/04/08 17:50:06 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/04/10 17:31:54 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#ifndef ZOMBIE_HPP
+#define ZOMBIER_HPP
 
-int main (int ac, char *av[])
+#include <iostream>
+class Zombie
 {
-	if(ac < 2)
-		std::cout << "* LOUD AND UNBEARABLE NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < ac; i++)
-		{
-			for (int j = 0; av[i][j] != '\0' ; j++)
-				std::cout << (char)toupper(av[i][j]);
-		}
-		std::cout << std::endl;		
-	}
-	return(0);
-}
+    private:
+        std::string name;
+};
+
+#endif
