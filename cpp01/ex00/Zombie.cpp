@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 17:50:06 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/04/13 18:33:05 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/04/13 16:35:51 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/04/13 18:32:54 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-class Zombie
+Zombie::Zombie(std::string name)
 {
-    private:
-        std::string name;
-    public:
-        Zombie(std::string name);
-        ~Zombie();
-        void announce();
-};
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-#endif
+	this->name = name;
+}
+Zombie::~Zombie()
+{
+	std::cout << "Destructor called: memory deallocated" << std::endl;
+}
+void Zombie::announce()
+{
+	std::cout << this->name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
+}

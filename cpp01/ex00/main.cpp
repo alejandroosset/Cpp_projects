@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 17:50:06 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/04/13 18:33:05 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/04/08 17:48:58 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/04/13 18:39:07 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-class Zombie
+int main(void)
 {
-    private:
-        std::string name;
-    public:
-        Zombie(std::string name);
-        ~Zombie();
-        void announce();
-};
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-#endif
+	Zombie *heapZombie;
+	
+	heapZombie = newZombie("Patroclo");
+	heapZombie->announce();
+	randomChump("Aquiles");
+	delete heapZombie;
+	return(0);
+}

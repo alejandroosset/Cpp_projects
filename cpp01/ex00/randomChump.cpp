@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 17:50:06 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/04/13 18:33:05 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/04/13 16:38:12 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/04/13 17:51:05 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-class Zombie
+void randomChump(std::string name)
 {
-    private:
-        std::string name;
-    public:
-        Zombie(std::string name);
-        ~Zombie();
-        void announce();
-};
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-#endif
+	Zombie stackZombie(name);
+	
+	stackZombie.announce();
+}

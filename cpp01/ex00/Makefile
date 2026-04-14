@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/04/08 17:48:54 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/04/13 18:11:03 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
 NAME = zombie
-SRC = phonebook.cpp contact.cpp main.cpp
+SRC = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
-HEADER = phonebook.hpp
+HEADER = Zombie.hpp
 
 all: $(NAME)
 
