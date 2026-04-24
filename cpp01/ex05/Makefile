@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/04/24 11:13:16 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/04/24 19:59:32 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ RESET = \033[0m
 CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
-NAME = violence
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME = complain
+SRC = main.cpp Harl.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-HEADER = HumanA.hpp HumanB.hpp Weapon.hpp
+HEADER = Harl.hpp
 $(NAME): $(OBJ) 
 	@$(CXX) $(CXXFLAGS) -o $@ $^ 
 	@echo "$(NAME): $(GREEN)object files were created$(RESET)"

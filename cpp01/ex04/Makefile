@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/04/24 11:13:16 by aosset-o         ###   ########.fr        #
+#    Created: 2026/04/23 16:30:04 by aosset-o          #+#    #+#              #
+#    Updated: 2026/04/23 16:41:03 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ RESET = \033[0m
 CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
-NAME = violence
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME = replace
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
