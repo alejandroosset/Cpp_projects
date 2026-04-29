@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 16:46:11 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/04/23 17:14:22 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:32:42 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ int main(int ac, char*av[])
     while(!infile.eof() && infile >> std::noskipws >> c)
 		str += c;
     infile.close();
+    return(replace(av, str));
 }

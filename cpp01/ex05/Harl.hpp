@@ -6,12 +6,12 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 11:12:38 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/04/24 19:58:16 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:32:51 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HARL_HPP
-#define HALR_HPP
+#define HARL_HPP
 
 #include <iostream>
 
