@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:05:06 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/11 18:04:41 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:11:33 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ Fixed::Fixed()
 	this->fixedPointValue = 0;
 }
 
+Fixed::Fixed(int const nbr)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->fixedPointValue = nbr * 1 << this->bits;
+}
+
+Fixed::Fixed(float const nbr)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->fixedPointValue = roundf(nbr * (1 << this->bits));
+}
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -40,13 +51,25 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->fixedPointValue);
 }
-
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->fixedPointValue = raw;
 }
 
+float	Fixed::toFloat(void) const
+{
+	return ((float)this->fixedPointValue / (float)(1 << this->bits));
+}
+
+int		Fixed::toInt(void) const
+{
+	return (this->fixedPointValue >> this->bits);
+}
+
+std::ostream &operator<<(std::ostream &nbr, Fixed const &fixed)
+{
+	nbr << fixed.toFloat();
+	return (nbr);
+}
