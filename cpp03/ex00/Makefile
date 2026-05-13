@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/08 13:04:18 by aosset-o          #+#    #+#              #
-#    Updated: 2026/05/12 17:18:40 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/05/13 19:37:57 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RESET = \033[0m
 CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
-NAME = fixed
+NAME = claptrap
 SRC = main.cpp ClapTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)

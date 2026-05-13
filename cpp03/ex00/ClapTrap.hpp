@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:19:24 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/12 17:29:58 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/13 19:36:43 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 
 #include <iostream>
 
-class clapTrap
+class ClapTrap
 {
 	private:
 		std::string name;
-		int hitPoints = 10;
-		int energyPoints = 10;
-		int attackDamage = 10;
+		int hitPoints;
+		int energyPoints;
+		int attackDamage;
 	public:
-		clapTrap(std::string name);
-		clapTrap(const clapTrap& other);
-		clapTrap& operator=(const clapTrap& other);
-		~clapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		~ClapTrap();
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 };
 
 #endif
