@@ -6,30 +6,31 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:19:34 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 16:48:03 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/18 17:42:39 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	std::cout << std::endl << "Constructing" << std::endl << std::endl;
+	std::cout << "### TESTING FragTrap ###" << std::endl;
 	{
 		std::cout << std::endl << "Constructing" << std::endl << std::endl;
-		ClapTrap a("Wall-e");
-		ClapTrap b("Eva");
+		FragTrap a("Claire");
+		FragTrap b("Fleabag");
 
 		std::cout << std::endl << "Testing" << std::endl << std::endl;
-		a.attack("some other robot");
+		a.attack("some robot");
 		a.takeDamage(10);
 		a.takeDamage(10);
 		a.beRepaired(5);
-		a.attack("some other other robot");
+		a.attack("some other robot");
 		b.beRepaired(3);
 		for (int i = 0; i < 12; i++)
-			b.attack("Cody-clone");
+			b.attack("clone");
 		b.beRepaired(3);
+		a.highFiveGuys();
 		std::cout << std::endl << "Deconstructing" << std::endl << std::endl;
 	}
 	return (0);
