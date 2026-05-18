@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 17:32:11 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 17:58:50 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/05/18 17:57:13 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/05/18 18:42:16 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "DogCat.hpp"
 
-#include "ClapTrap.hpp"
-
-class FragTrap : public ClapTrap
+int main(void)
 {
-	public:
-		FragTrap(std::string name);
-		FragTrap(const FragTrap& other);
-		~FragTrap();
-		
-		void highFiveGuys(void);
-};
-#endif
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+
+	return 0;
+}

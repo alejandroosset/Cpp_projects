@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DogCat.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 17:32:11 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 17:58:50 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/05/18 18:22:24 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/05/18 18:42:34 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class FragTrap : public ClapTrap
+class Dog : public Animal
 {
 	public:
-		FragTrap(std::string name);
-		FragTrap(const FragTrap& other);
-		~FragTrap();
-		
-		void highFiveGuys(void);
+		Dog();
+		Dog(const Dog& other);
+		~Dog();
+
+		void makeSound() const;
+};
+
+class Cat : public Animal
+{
+	public:
+		Cat();
+		Cat(const Cat& other);
+		~Cat();
+
+		void makeSound() const;
 };
 #endif

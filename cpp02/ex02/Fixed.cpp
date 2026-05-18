@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:05:06 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/11 18:26:54 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/18 18:15:41 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Fixed &Fixed::operator=(const Fixed& other)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructoe called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const

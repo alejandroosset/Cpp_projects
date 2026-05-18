@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 13:17:46 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 16:36:48 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/18 18:15:56 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap destructoe called" << std::endl;
+    std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)

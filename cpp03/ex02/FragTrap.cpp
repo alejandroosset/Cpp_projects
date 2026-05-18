@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 16:48:43 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 17:41:05 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/18 18:15:56 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap destructoe called" << std::endl;
+    std::cout << "FragTrap destructor called" << std::endl;
 }
 
 void FragTrap::highFiveGuys(void)
