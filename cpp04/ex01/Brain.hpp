@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 18:33:54 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/19 13:01:14 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/05/19 13:13:02 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/05/19 13:32:45 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-Cat::Cat() : Animal()
-{
-    std::cout << "Cat default constructor called" << std::endl;
-    this->type = "Cat";
-}
+#include <iostream>
 
-Cat::Cat(const Cat& other) : Animal(other)
+class Brain
 {
-    std::cout << "Cat copy constructor called" << std::endl;
-	*this = other;
-}
-
-Cat::~Cat()
-{
-    std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-	std::cout << "Meow" << std::endl;
-}
+	private:
+		std::string ideas[100];
+	public:
+		Brain();
+		Brain(std::string name);
+		Brain(const Brain& other);
+		Brain& operator=(const Brain& other);
+		~Brain();
+		
+		void setIdea(int i, std::string idea);
+		std::string getIdea(int i);
+};
+#endif

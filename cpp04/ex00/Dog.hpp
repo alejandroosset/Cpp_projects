@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 18:33:54 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/19 13:01:14 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/05/18 18:22:24 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/05/19 13:01:21 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-Cat::Cat() : Animal()
-{
-    std::cout << "Cat default constructor called" << std::endl;
-    this->type = "Cat";
-}
+#include "Animal.hpp"
 
-Cat::Cat(const Cat& other) : Animal(other)
+class Dog : public Animal
 {
-    std::cout << "Cat copy constructor called" << std::endl;
-	*this = other;
-}
+	public:
+		Dog();
+		Dog(const Dog& other);
+		~Dog();
 
-Cat::~Cat()
-{
-    std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-	std::cout << "Meow" << std::endl;
-}
+		void makeSound() const;
+};
+#endif

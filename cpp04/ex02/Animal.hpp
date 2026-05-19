@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 18:33:54 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/19 13:01:14 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/05/18 17:58:24 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/05/19 16:11:35 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-Cat::Cat() : Animal()
-{
-    std::cout << "Cat default constructor called" << std::endl;
-    this->type = "Cat";
-}
+#include <iostream>
 
-Cat::Cat(const Cat& other) : Animal(other)
+class Animal
 {
-    std::cout << "Cat copy constructor called" << std::endl;
-	*this = other;
-}
+	protected:
+		std::string type;
+	public:
+		Animal();
+		Animal(std::string name);
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal();
 
-Cat::~Cat()
-{
-    std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-	std::cout << "Meow" << std::endl;
-}
+		std::string const	&getType(void) const;
+		void				setType(std::string const &type);
+		
+		virtual void makeSound() const = 0;
+};
+#endif

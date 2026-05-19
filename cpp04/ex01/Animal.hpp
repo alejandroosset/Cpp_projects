@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DogCat.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 18:22:24 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 18:42:34 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/05/18 17:58:24 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/05/19 11:46:01 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Dog : public Animal
+class Animal
 {
+	protected:
+		std::string type;
 	public:
-		Dog();
-		Dog(const Dog& other);
-		~Dog();
+		Animal();
+		Animal(std::string name);
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal();
 
-		void makeSound() const;
-};
-
-class Cat : public Animal
-{
-	public:
-		Cat();
-		Cat(const Cat& other);
-		~Cat();
-
-		void makeSound() const;
+		std::string const	&getType(void) const;
+		void				setType(std::string const &type);
+		
+		virtual void makeSound() const;
 };
 #endif
