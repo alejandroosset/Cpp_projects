@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 13:17:46 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 18:15:56 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/29 17:27:49 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ ScavTrap::~ScavTrap()
 void ScavTrap::attack(const std::string& target)
 {
     if(this->energyPoints > 0 && this->hitPoints > 0)
+    {
         std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->hitPoints << " points of damage!" << std::endl;
+        this->energyPoints--;
+    }
     else if(this->energyPoints < 0)
         std::cout << "ScavTrap has insufficient energy points." << std::endl;
     else

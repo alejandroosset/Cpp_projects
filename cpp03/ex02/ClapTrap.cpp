@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:19:30 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 18:15:00 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/29 17:20:44 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap(std::string name)
 {
-    std::cout << "Claptrap default constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
     this->name = name;
     this->hitPoints = 10;
     this->energyPoints = 10;
@@ -23,13 +23,13 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-    std::cout << "Claptrap copy constructor called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& other)
 {
-    std::cout << "Claptrap copy assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		this->name = other.name;
@@ -42,13 +42,16 @@ ClapTrap &ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Claptrap destructor called" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
     if(this->energyPoints > 0 && this->hitPoints > 0)
+    {
         std::cout << "Claptrap " << this->name << " attacks " << target << ", causing " << this->hitPoints << " points of damage!" << std::endl;
+        this->energyPoints--;
+    }
     else if(this->energyPoints < 0)
         std::cout << "Claptrap has insufficient energy points." << std::endl;
     else
@@ -59,8 +62,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if(this->hitPoints > (int)amount)
         hitPoints -= amount;
-    else if(hitPoints > 0)
-        hitPoints = 0;
     else
     {
         std::cout << "Claptrap Is already dead =( ." << std::endl;
@@ -74,6 +75,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     if(this->energyPoints > 0 && this->hitPoints > 0)
     {
         this->hitPoints += amount;
+        this->energyPoints--;
         std::cout << "Claptrap " << this->name << " has healed " << amount << " " << this->hitPoints << " points of health!" << std::endl;
     }
     else if(this->energyPoints < 0)

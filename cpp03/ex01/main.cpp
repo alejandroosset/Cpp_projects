@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 17:19:34 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/18 16:47:10 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/05/29 17:38:52 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void)
 		a.beRepaired(5);
 		a.attack("some other robot");
 		b.beRepaired(3);
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 54; i++)
 			b.attack("clone");
 		b.beRepaired(3);
 		a.guardGate();
