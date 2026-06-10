@@ -1,79 +1,79 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:09 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:15:39 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 19:22:53 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 // Constructors and destructors
-Form::Form() : name("default"), sign_grade(1), exec_grade(1)
+AForm::AForm() : name("default"), sign_grade(1), exec_grade(1)
 {
     this->is_signed = false;
 }
 
-Form::Form(std::string f_name, int s_grade, int e_grade) : name(f_name), sign_grade(s_grade), exec_grade(e_grade)
+AForm::AForm(std::string f_name, int s_grade, int e_grade) : name(f_name), sign_grade(s_grade), exec_grade(e_grade)
 {
     this->is_signed = false;
 }
 
-Form::Form(const Form& other) : name(other.name), sign_grade(other.sign_grade), exec_grade(other.exec_grade)
+AForm::AForm(const AForm& other) : name(other.name), sign_grade(other.sign_grade), exec_grade(other.exec_grade)
 {
     this->is_signed = other.is_signed;
 }
 
-Form& Form::operator=(const Form& other) 
+AForm& AForm::operator=(const AForm& other) 
 {
     if (this != &other)
         this->is_signed = other.is_signed;
     return *this;
 }
 
-Form::~Form() 
+AForm::~AForm() 
 {
 }
 
 //Getters
-std::string Form::GetName()
+std::string AForm::GetName()
 {
     return(this->name);
 }
 
-bool Form::GetSigned()
+bool AForm::GetSigned()
 {
     return(this->is_signed);
 }
 
-int Form::GetSignGrade()
+int AForm::GetSignGrade()
 {
     return(this->sign_grade);
 }
 
-int Form::GetExecGrade()
+int AForm::GetExecGrade()
 {
     return(this->exec_grade);
 }
 
 //Excepciones
-std::string Form::GradeTooHighException()
+std::string AForm::GradeTooHighException()
 {
-    return("The form grade is too high.\n");
+    return("The Aform grade is too high.\n");
 }
 
-std::string Form::GradeTooLowException()
+std::string AForm::GradeTooLowException()
 {
-    return("The form grade is too low.\n");
+    return("The Aform grade is too low.\n");
 }
 
-//Funciones Form
-bool Form::beSigned(Bureaucrat &b)
+//Funciones AForm
+bool AForm::beSigned(Bureaucrat &b)
 {
     try
     {
@@ -89,8 +89,8 @@ bool Form::beSigned(Bureaucrat &b)
 }
 
 //operators
-std::ostream &operator<<(std::ostream &os,  Form &form)
+std::ostream &operator<<(std::ostream &os,  AForm &Aform)
 {
-	os << "Name: " << form.GetName() << " isSigned: " << form.GetSigned() << " SignGrade: " << form.GetSignGrade() << " ExecuteGrade: " << form.GetExecGrade() << std::endl;
+	os << "Name: " << Aform.GetName() << " isSigned: " << Aform.GetSigned() << " SignGrade: " << Aform.GetSignGrade() << " ExecuteGrade: " << Aform.GetExecGrade() << std::endl;
 	return (os);
 }

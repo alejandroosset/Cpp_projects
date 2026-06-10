@@ -6,64 +6,43 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:05 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/09 19:54:50 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 16:47:16 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-static void printb(Bureaucrat &b)
-{
-	std::cout << "El burocrata " << b.GetName() << " tiene este rango " << b.GetGrade() << std::endl;
-}
-
 int main()
 {
-	try
-	{
-		Bureaucrat a("Alice", 149);
+	//Decrementing too low exception
+	Bureaucrat a("Alice", 149);
 
-		printb(a);
+	std::cout << a;
 
-		std::cout << "Decrementing grade..." << std::endl;
-		a.DecrementGrade();
-		printb(a);
+	std::cout << "Decrementing grade..." << std::endl;
+	a.DecrementGrade();
+	std::cout << a;
 
-		std::cout << "Decrementing grade..." << std::endl;
-		a.DecrementGrade();
-		printb(a);
-	}
-	catch (const std::string &error)
-	{
-		std::cerr << error;
-	}
-	try
-	{	
-		Bureaucrat high("Carol", 1);
-		printb(high);
-		std::cout << "Incrementing grade..." << std::endl;
-		high.IncrementGrade();
-		printb(high);
-	}
-	catch (const std::string &error)
-	{
-		std::cerr << error;
-	}
-	try
-	{
-		Bureaucrat low("Bob", 151);
-	}
-	catch (const std::string &error)
-	{
-		std::cerr << error;
-	}
-	try
-	{
-		Bureaucrat high("Bob", 0);
-	}
-	catch (const std::string &error)
-	{
-		std::cerr << error;
-	}
+	std::cout << "Decrementing grade..." << std::endl;
+	a.DecrementGrade();
+	std::cout << a;
+	
+	//Incrementing too high exception
+	Bureaucrat high("Carol", 2);
+
+	std::cout << high;
+	
+	std::cout << "Incrementing grade..." << std::endl;
+	high.IncrementGrade();
+	std::cout << high;
+	std::cout << "Incrementing grade..." << std::endl;
+	high.IncrementGrade();
+	std::cout << high;
+
+	//creating too low exception
+	Bureaucrat too_low("Bob", 151);
+	
+	//creating too high exception
+	Bureaucrat too_high("Bob", 0);
 	return 0;
 }

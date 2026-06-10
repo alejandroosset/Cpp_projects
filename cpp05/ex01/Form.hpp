@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:15 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/09 18:39:18 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 17:19:27 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FORM_HPP
 
 # include <iostream>
+
+class Bureaucrat;
 
 class Form
 {
@@ -29,6 +31,20 @@ class Form
         Form(const Form& other);
         Form& operator=(const Form& other);
         ~Form();
-};
 
+        //Getters
+        std::string GetName();
+        bool GetSigned();
+        int GetSignGrade();
+        int GetExecGrade();
+        
+        //Excepciones
+        std::string GradeTooHighException();
+        std::string GradeTooLowException();
+        
+        //Funciones form
+        bool beSigned(Bureaucrat &b);
+};
+//operators
+std::ostream &operator<<(std::ostream &os,  Form &form);
 #endif

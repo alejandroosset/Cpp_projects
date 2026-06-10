@@ -6,11 +6,12 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:28 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 16:45:40 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 19:23:33 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 //Constructores y destructores
 Bureaucrat::Bureaucrat() : name("default")
@@ -66,12 +67,12 @@ int Bureaucrat::GetGrade()
 //Excepciones
 std::string Bureaucrat::GradeTooHighException()
 {
-    return("The bureaucrat grade is too high.\n");
+    return("The bourocrat grade is too high.\n");
 }
 
 std::string Bureaucrat::GradeTooLowException()
 {
-    return("The bureaucrat grade is too low.\n");
+    return("The bourocrat grade is too low.\n");
 }
 
 //Funciones del Burocrata
@@ -101,6 +102,14 @@ void Bureaucrat::IncrementGrade()
     {
         std::cerr << msg;
     }   
+}
+
+void Bureaucrat::signForm(AForm &f)
+{
+    if(f.beSigned(*this))
+        std::cout << this->name << " signed " << f.GetName() << std::endl;
+    else 
+        std::cout << this->name << " couldn´t sign " << f.GetName() << " because their grade wasn´t high enough";
 }
 
 //operators

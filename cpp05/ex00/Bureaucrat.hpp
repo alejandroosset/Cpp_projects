@@ -6,14 +6,15 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:20 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/09 19:55:46 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 16:47:41 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
+# include <iostream>
+# include <string>
 
 class Bureaucrat
 {
@@ -28,7 +29,7 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& other);
 		~Bureaucrat();
 
-        //Getters y setters
+        //Getters
         std::string GetName();
         int GetGrade();
 
@@ -40,4 +41,7 @@ class Bureaucrat
         void DecrementGrade();
         void IncrementGrade();
 };
+
+//operators
+std::ostream &operator<<(std::ostream &os, Bureaucrat &other);
 #endif

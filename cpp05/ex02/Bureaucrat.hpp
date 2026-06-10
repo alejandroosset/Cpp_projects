@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:20 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 17:19:41 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 19:27:12 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -41,7 +41,7 @@ class Bureaucrat
         //Funciones burocrata
         void DecrementGrade();
         void IncrementGrade();
-        void signForm(Form &f);
+        void signForm(AForm &f);
 };
 //operators
 std::ostream &operator<<(std::ostream &os, Bureaucrat &other);

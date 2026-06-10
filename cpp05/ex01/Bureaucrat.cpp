@@ -6,11 +6,12 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:28 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/09 19:55:20 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 17:19:31 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 //Constructores y destructores
 Bureaucrat::Bureaucrat() : name("default")
@@ -20,12 +21,18 @@ Bureaucrat::Bureaucrat() : name("default")
 
 Bureaucrat::Bureaucrat(std::string b_name, int grade) : name(b_name)
 {
-    if(grade < 1)
-        throw this->GradeTooHighException();
-    else if(grade > 150)
-        throw this->GradeTooLowException();
-    else
+    try
+    {
+        if(grade < 1)
+            throw this->GradeTooHighException();
+        else if(grade > 150)
+            throw this->GradeTooLowException();
         this->grade = grade;
+    }
+    catch(std::string msg)
+    {
+        std::cerr << msg;
+    }        
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name)
@@ -46,7 +53,7 @@ Bureaucrat::~Bureaucrat()
     
 }
 
-//Getters y setters
+//Getters
 std::string Bureaucrat::GetName()
 {
     return(this->name);
@@ -71,15 +78,43 @@ std::string Bureaucrat::GradeTooLowException()
 //Funciones del Burocrata
 void Bureaucrat::DecrementGrade()
 {
-    
-    if(this->grade == 150)
-        throw this->GradeTooLowException();
-    this->grade++;
+    try
+    {
+        if(this->grade == 150)
+            throw this->GradeTooLowException();
+        this->grade++;   
+    }
+    catch(std::string msg)
+    {
+        std::cerr << msg;
+    } 
 }
 
 void Bureaucrat::IncrementGrade()
 {
-    if(this->grade == 1)
-        throw this->GradeTooHighException();
-    this->grade--;    
+    try
+    {
+        if(this->grade == 1)
+            throw this->GradeTooHighException();
+        this->grade--;    
+    }
+    catch(std::string msg)
+    {
+        std::cerr << msg;
+    }   
+}
+
+void Bureaucrat::signForm(Form &f)
+{
+    if(f.beSigned(*this))
+        std::cout << this->name << " signed " << f.GetName() << std::endl;
+    else 
+        std::cout << this->name << " couldn´t sign " << f.GetName() << " because their grade wasn´t high enough";
+}
+
+//operators
+std::ostream &operator<<(std::ostream &os, Bureaucrat &other)
+{
+	os << other.GetName() << ", bureaucrat grade " << other.GetGrade() << std::endl;
+	return (os);
 }

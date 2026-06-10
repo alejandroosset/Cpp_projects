@@ -6,12 +6,12 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:05 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:20:58 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 19:34:25 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
-# include "Form.hpp"
+# include "AForm.hpp"
 
 int main()
 {
@@ -47,25 +47,5 @@ int main()
 	
 	//creating too high exception
 	Bureaucrat too_high("Bob", 0);
-
-	std::cout << "TESTEANDO FORMS" << std::endl << std::endl;
-
-	Bureaucrat s("Paco", 110);
-	std::cout << s;
-	try
-	{
-		
-		Form f("Form", 150, 150);
-		if(f.GetSignGrade() < 0 || f.GetExecGrade() < 0)
-			throw f.GradeTooHighException();
-		if(f.GetSignGrade() > 250 || f.GetExecGrade() > 150)
-			throw f.GradeTooLowException();
-		std::cout << f;
-		s.signForm(f);
-	}
-	catch(std::string msg)
-	{
-		std::cerr << msg;
-	}
 	return 0;
 }

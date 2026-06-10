@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/06/10 17:21:52 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/06/10 19:27:43 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
 NAME = bureaucrat
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-HEADER = Bureaucrat.hpp Form.hpp
+HEADER = Bureaucrat.hpp AForm.hpp
 $(NAME): $(OBJ) 
 	@$(CXX) $(CXXFLAGS) -o $@ $^ 
 	@echo "$(NAME): $(GREEN)object files were created$(RESET)"
