@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:20 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 17:19:41 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/12 11:34:01 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,16 @@ class Bureaucrat
         int GetGrade();
 
         //Excepciones
-        std::string GradeTooHighException();
-        std::string GradeTooLowException();
+        class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+        class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
         
         //Funciones burocrata
         void DecrementGrade();

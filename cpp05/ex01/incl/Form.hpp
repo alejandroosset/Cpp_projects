@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:15 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 17:19:27 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/12 11:39:01 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,16 @@ class Form
         int GetExecGrade();
         
         //Excepciones
-        std::string GradeTooHighException();
-        std::string GradeTooLowException();
+        class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+        class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
         
         //Funciones form
         bool beSigned(Bureaucrat &b);

@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/06/09 14:48:08 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/06/12 12:12:14 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RED = \033[0;31m
 RESET = \033[0m
 
 CXX=c++
-CXXFLAGS=-Wall -Wextra -Werror -std=c++98
+CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -Iincl
 
 NAME = bureaucrat
 SRC = main.cpp Bureaucrat.cpp

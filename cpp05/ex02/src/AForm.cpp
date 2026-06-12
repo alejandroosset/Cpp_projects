@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:09 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:22:53 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/12 15:07:39 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ AForm::AForm() : name("default"), sign_grade(1), exec_grade(1)
 
 AForm::AForm(std::string f_name, int s_grade, int e_grade) : name(f_name), sign_grade(s_grade), exec_grade(e_grade)
 {
+    if(this->GetSignGrade() < 0 || this->GetExecGrade() < 0)
+			throw GradeTooHighException();
+    if(this->GetSignGrade() > 150 || this->GetExecGrade() > 150)
+        throw GradeTooLowException();
     this->is_signed = false;
 }
 
@@ -62,14 +66,19 @@ int AForm::GetExecGrade()
 }
 
 //Excepciones
-std::string AForm::GradeTooHighException()
+const char *AForm::GradeTooHighException::what() const throw()
 {
     return("The Aform grade is too high.\n");
 }
 
-std::string AForm::GradeTooLowException()
+const char *AForm::GradeTooLowException::what() const throw()
 {
     return("The Aform grade is too low.\n");
+}
+
+const char *AForm::FormNotSignedException::what() const throw()
+{
+    return("The form is not signed.\n");
 }
 
 //Funciones AForm
@@ -81,12 +90,21 @@ bool AForm::beSigned(Bureaucrat &b)
             throw GradeTooHighException();
         this->is_signed = true;
     }
-    catch(std::string msg)
+    catch(std::exception & e)
     {
-        std::cerr << msg;
+        std::cerr << e.what();
     }
     return(this->is_signed); 
 }
+
+// void AForm::execute(Bureaucrat &executor) const
+// {
+//     if (!this->is_signed)
+//         throw FormNotSignedException();
+//     if (executor.GetGrade() > this->exec_grade)
+//         throw GradeTooLowException();
+//     this->executeAction();
+// }
 
 //operators
 std::ostream &operator<<(std::ostream &os,  AForm &Aform)

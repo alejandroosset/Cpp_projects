@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:20 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:27:12 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/12 11:29:18 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #define BUREAUCRAT_HPP
 
 # include <iostream>
-
-class AForm;
+# include <string>
 
 class Bureaucrat
 {
@@ -35,14 +34,22 @@ class Bureaucrat
         int GetGrade();
 
         //Excepciones
-        std::string GradeTooHighException();
-        std::string GradeTooLowException();
+        class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+        class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
         
         //Funciones burocrata
         void DecrementGrade();
         void IncrementGrade();
-        void signForm(AForm &f);
 };
+
 //operators
 std::ostream &operator<<(std::ostream &os, Bureaucrat &other);
 #endif

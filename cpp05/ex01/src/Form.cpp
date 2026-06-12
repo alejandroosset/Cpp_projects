@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:09 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:15:39 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/12 11:44:45 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ Form::Form() : name("default"), sign_grade(1), exec_grade(1)
 
 Form::Form(std::string f_name, int s_grade, int e_grade) : name(f_name), sign_grade(s_grade), exec_grade(e_grade)
 {
+    if(this->GetSignGrade() < 0 || this->GetExecGrade() < 0)
+			throw GradeTooHighException();
+    if(this->GetSignGrade() > 150 || this->GetExecGrade() > 150)
+        throw GradeTooLowException();
     this->is_signed = false;
 }
 
@@ -62,12 +66,12 @@ int Form::GetExecGrade()
 }
 
 //Excepciones
-std::string Form::GradeTooHighException()
+const char *Form::GradeTooHighException::what() const throw()
 {
     return("The form grade is too high.\n");
 }
 
-std::string Form::GradeTooLowException()
+const char *Form::GradeTooLowException::what() const throw()
 {
     return("The form grade is too low.\n");
 }
@@ -81,9 +85,9 @@ bool Form::beSigned(Bureaucrat &b)
             throw GradeTooHighException();
         this->is_signed = true;
     }
-    catch(std::string msg)
+    catch(std::exception & e)
     {
-        std::cerr << msg;
+        std::cerr << e.what();
     }
     return(this->is_signed); 
 }

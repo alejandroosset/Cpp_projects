@@ -6,14 +6,15 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:15 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:33:51 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/12 15:05:38 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AAFORM_HPP
-# define AAFORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
+# include <fstream>
 
 class Bureaucrat;
 
@@ -27,7 +28,7 @@ class AForm
     protected:
         virtual void executeAction() const = 0;
     public:
-        // Constructor and destructors
+        // Constructores y destructores
         AForm();
         AForm(std::string f_name, int s_grade, int e_grade);
         AForm(const AForm& other);
@@ -41,11 +42,25 @@ class AForm
         int GetExecGrade();
         
         //Excepciones
-        std::string GradeTooHighException();
-        std::string GradeTooLowException();
+        class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+        class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+        class FormNotSignedException : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
         
         //Funciones Aform
-        bool beSigned(Bureaucrat &b) ;
+        bool beSigned(Bureaucrat &b);
+        // void execute(Bureaucrat &executor) const;
 };
 //operators
 std::ostream &operator<<(std::ostream &os,  AForm &Aform);

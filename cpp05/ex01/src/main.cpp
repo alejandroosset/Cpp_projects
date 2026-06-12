@@ -6,14 +6,14 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:05 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:34:25 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/12 12:09:25 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
-# include "AForm.hpp"
+# include "Form.hpp"
 
-int main()
+int main(void)
 {
 	std::cout << "TESTEANDO BUROCRATAS" << std::endl << std::endl;
 	
@@ -47,5 +47,45 @@ int main()
 	
 	//creating too high exception
 	Bureaucrat too_high("Bob", 0);
+
+	std::cout << "TESTEANDO FORMS" << std::endl << std::endl;
+
+	//burocrata puede firmar
+	Bureaucrat s("Paco", 110);
+	std::cout << s;
+	try
+	{
+		Form f("Form", 120, 120);
+		std::cout << f;
+		s.signForm(f);
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what();
+	}
+
+	//burocrata no puede firmar
+	try
+	{
+		Form f("Form", 100, 100);
+		std::cout << f;
+		s.signForm(f);
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what();
+	}
+
+	//No se puede crear form por grade inválio
+	try
+	{
+		Form f("Form", 0, 120);
+		std::cout << f;
+		s.signForm(f);
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what();
+	}
 	return 0;
 }
