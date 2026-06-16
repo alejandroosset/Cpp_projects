@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/19 11:36:14 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/19 11:37:15 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/06/16 12:02:53 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/06/16 12:03:48 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGWrongCat_HPP
-#define WRONGWrongCat_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-#include "WrongAnimal.hpp"
+# include <iostream>
+# include <string>
+# include <exception>
+# include "AForm.hpp"
 
-class WrongCat : public WrongAnimal
+class AForm;
+
+class Intern
 {
-	public:
-		WrongCat();
-		WrongCat(const WrongCat& other);
-		~WrongCat();
+	private:
 
-		void makeSound() const;
+	public:
+		// Constructors and destructors
+		Intern();
+		Intern(const Intern &other);
+		Intern &operator=(const Intern &other);
+		~Intern();
+
+		// Funciones
+		AForm	*makeForm(const std::string form_name, const std::string form_target) ;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 17:57:13 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/05/19 13:12:01 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/16 09:52:27 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,6 @@ int main()
     delete meta;
     delete dog;
     delete cat;
-
-    std::cout << "\n=== TEST WRONG ANIMAL ===" << std::endl;
-
-    const WrongAnimal* wrongMeta = new WrongAnimal();
-    const WrongAnimal* wrongCat = new WrongCat();
-
-    std::cout << "\nTipos:" << std::endl;
-    std::cout << wrongMeta->getType() << std::endl;
-    std::cout << wrongCat->getType() << std::endl;
-
-    std::cout << "\nSonidos:" << std::endl;
-    wrongMeta->makeSound();
-    wrongCat->makeSound();
-
-    delete wrongMeta;
-    delete wrongCat;
 
     return 0;
 }

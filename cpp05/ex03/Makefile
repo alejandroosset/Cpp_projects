@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/06/16 11:58:53 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/06/16 12:05:14 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,13 @@ CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -Iincl
 
 NAME = bureaucrat
 SRC = src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/ShrubberyCreationForm.cpp \
-src/RobotomyRequestForm.cpp src/PresidentialPardonForm.cpp
+src/RobotomyRequestForm.cpp src/PresidentialPardonForm.cpp src/Intern.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-HEADER = incl/Bureaucrat.hpp incl/AForm.hpp incl/ShrubberyCreationForm.hpp incl/RobotomyRequestForm.cpp incl/PresidentialPardonForm.hpp
+HEADER = incl/Bureaucrat.hpp incl/AForm.hpp incl/ShrubberyCreationForm.hpp incl/RobotomyRequestForm.cpp \
+incl/PresidentialPardonForm.hpp incl/Intern.hpp
 $(NAME): $(OBJ) 
 	@$(CXX) $(CXXFLAGS) -o $@ $^ 
 	@echo "$(NAME): $(GREEN)object files were created$(RESET)"

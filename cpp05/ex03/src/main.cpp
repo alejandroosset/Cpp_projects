@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:05 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/16 11:59:56 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/16 12:06:55 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
+# include "Intern.hpp"
 
 int main(void)
 {
@@ -61,5 +62,16 @@ int main(void)
 	
 	boss.signForm(PForm);
 	boss.executeForm(PForm);
+
+	std::cout << "\033[33m" << std::endl << "Test ex03 Intern" << "\033[0m" << std::endl;
+
+	Intern Jr_Intern;
+	AForm *robo_intern;
+
+	robo_intern = Jr_Intern.makeForm("DoYouKnowMe", "Hmmmm");
+	robo_intern = Jr_Intern.makeForm("RobotomyRequestForm", "World");
+
+	std::cout << robo_intern->GetName() << std::endl;
+	delete robo_intern;
 	return 0;
 }

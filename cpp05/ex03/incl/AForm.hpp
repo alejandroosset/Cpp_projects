@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:15 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/16 11:28:13 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/16 12:07:22 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class AForm
         AForm(std::string f_name, int s_grade, int e_grade);
         AForm(const AForm& other);
         AForm& operator=(const AForm& other);
-        ~AForm();
+        virtual ~AForm();
 
         //Getters
         std::string GetName() const;
