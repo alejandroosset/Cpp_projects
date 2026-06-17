@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:12:09 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/12 11:44:45 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/17 18:03:49 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Form::Form() : name("default"), sign_grade(1), exec_grade(1)
 
 Form::Form(std::string f_name, int s_grade, int e_grade) : name(f_name), sign_grade(s_grade), exec_grade(e_grade)
 {
-    if(this->GetSignGrade() < 0 || this->GetExecGrade() < 0)
+    if(this->GetSignGrade() < 1 || this->GetExecGrade() < 1)
 			throw GradeTooHighException();
     if(this->GetSignGrade() > 150 || this->GetExecGrade() > 150)
         throw GradeTooLowException();
