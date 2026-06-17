@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 15:04:19 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/16 11:47:58 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/17 16:00:22 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 {
     if (this != &other) 
     {
-        this->target = target;
+        this->target = other.target;
     }
     return *this;
 }

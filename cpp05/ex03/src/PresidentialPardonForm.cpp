@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 10:08:50 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/16 11:59:10 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/17 16:00:18 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 {
     if (this != &other) 
     {
-        this->target = target;
+        this->target = other.target;
     }
     return *this;
 }
