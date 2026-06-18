@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 18:23:23 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/17 19:00:25 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/18 18:10:28 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,26 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::convert(std::string str)
 {
-    if(str.size() == 1 && !isdigit(str[0]))
+    char c;
+
+    c = WichType(str);
+
+    switch (c)
+    {
+    case 'c':
+        std::cout << "convert char" << std::endl;
+        break;
+    case 'i':
+        std::cout << "convert int" << std::endl;
+        break;
+    case 'f':
+        std::cout << "convert float" << std::endl;
+        break;
+    case 'd':
+        std::cout << "convert double" << std::endl;
+        break;
+    default:
+        std::cout << "Invalid atribute to convert." << std::endl;
+        break;
+    }
 }

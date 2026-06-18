@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 18:23:19 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/17 18:48:01 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/06/18 18:25:25 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ class ScalarConverter
         static void convert(std::string str);
 };
 
-char ConvertChar(std::string str);
+char WichType(std::string str);
+void ConvertChar(std::string str);
 #endif

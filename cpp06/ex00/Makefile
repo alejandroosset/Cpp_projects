@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/06/17 18:21:30 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/06/18 16:36:53 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -Iincl
 
 NAME = convert
-SRC = src/main.cpp src/ScalarConverter.cpp
+SRC = src/main.cpp src/ScalarConverter.cpp src/utils.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
