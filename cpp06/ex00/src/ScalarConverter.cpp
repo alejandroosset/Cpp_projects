@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 18:23:23 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/18 18:10:28 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/07/07 19:40:20 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,19 @@ void ScalarConverter::convert(std::string str)
     switch (c)
     {
     case 'c':
-        std::cout << "convert char" << std::endl;
+        ConvertChar(str);
         break;
     case 'i':
-        std::cout << "convert int" << std::endl;
+        ConvertInt(str);
         break;
     case 'f':
-        std::cout << "convert float" << std::endl;
+        ConvertFloat(str);
         break;
     case 'd':
-        std::cout << "convert double" << std::endl;
+        ConvertDouble(str);
+        break;
+    case 's':
+        ConvertSpecial(str);
         break;
     default:
         std::cout << "Invalid atribute to convert." << std::endl;

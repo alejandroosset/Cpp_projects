@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 15:28:19 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/18 18:03:34 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/07/07 19:36:17 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int IsFloat(std::string str)
 	{
 		while (isdigit(str[i]))
 			i++;
-		if(str[i] != '.' || !isdigit(str[i + 1]) || str[i + 2] != '\0')
+		if(str[i] != '.' || !isdigit(str[i + 1]) || str[i + 2] != 'f' || str[i + 3] != '\0')
 			return(0);
 		return(1);
 	}
@@ -54,8 +54,7 @@ static int IsDouble(std::string str)
 			i++;
 		if(str[i] != '.' || !isdigit(str[i + 1]))
 			return(0);
-		i += 2;
-		if(str[i] != 'f' || str[i + 1] != '\0')
+		if(str[i] != '.' || !isdigit(str[i + 1]) || str[i + 2] != '\0')
 			return(0);
 		return(1);
 	}
@@ -63,7 +62,7 @@ static int IsDouble(std::string str)
 }
 char WichType(std::string str)
 {
-	if((str.size() == 1 && !(isdigit(str[0]))) || (str.size() == 3 && str[0] == '/' && str[2] == '/'))
+	if((str.size() == 1 && !(isdigit(str[0]))))
 		return('c');
 	if(IsInt(str))
 		return('i');

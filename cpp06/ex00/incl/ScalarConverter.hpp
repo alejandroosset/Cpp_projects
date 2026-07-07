@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 18:23:19 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/18 18:25:25 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/07/07 19:37:49 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-
+# include <cstdlib>
+# include <climits>
 class ScalarConverter
 {
     private:
@@ -30,4 +31,8 @@ class ScalarConverter
 
 char WichType(std::string str);
 void ConvertChar(std::string str);
+void ConvertInt(std::string str);
+void ConvertFloat(std::string str);
+void ConvertDouble(std::string str);
+void ConvertSpecial(std::string str);
 #endif

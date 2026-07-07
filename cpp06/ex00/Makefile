@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/06/18 16:36:53 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/07/07 18:50:59 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -Iincl
 
 NAME = convert
-SRC = src/main.cpp src/ScalarConverter.cpp src/utils.cpp
+SRC = src/main.cpp src/ScalarConverter.cpp src/utils.cpp src/converter.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-HEADER = incl/Bureaucrat.hpp
+HEADER = incl/ScalarConverter.hpp
 $(NAME): $(OBJ) 
 	@$(CXX) $(CXXFLAGS) -o $@ $^ 
 	@echo "$(NAME): $(GREEN)object files were created$(RESET)"
