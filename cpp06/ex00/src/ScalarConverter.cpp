@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 18:23:23 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/07/07 19:40:20 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:25:43 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter& other)
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) 
 {
-    if (this != &other) {
-        // Copy attributes here
-    }
+    (void)other;
     return *this;
 }
 
