@@ -6,12 +6,12 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 17:21:41 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/07/10 17:50:09 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/09/18 12:50:13 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-
+//Constructors and destructors
 Serializer::Serializer()
 {
 	
@@ -30,4 +30,14 @@ Serializer& Serializer::operator=(const Serializer& other)
 Serializer::~Serializer()
 {
 	
+}
+
+//Functions
+uintptr_t Serializer::serialize(Data *ptr)
+{
+	return(reinterpret_cast<uintptr_t>(ptr));
+}
+Data* Serializer::deserialize(uintptr_t raw)
+{
+	return(reinterpret_cast<Data*>(raw));
 }
