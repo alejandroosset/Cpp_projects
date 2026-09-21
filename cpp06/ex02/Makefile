@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/09/21 12:54:00 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/09/21 17:54:26 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ RESET = \033[0m
 CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -Iincl
 
-NAME = serializer
-SRC = src/main.cpp src/Data.cpp src/Serializer.cpp
+NAME = base
+SRC = src/main.cpp src/Base.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-HEADER = incl/Serializer.hpp incl/Data.hpp
+HEADER = incl/Base.hpp incl/A.hpp incl/B.hpp incl/C.hpp
 $(NAME): $(OBJ) 
 	@$(CXX) $(CXXFLAGS) -o $@ $^ 
 	@echo "$(NAME): $(GREEN)object files were created$(RESET)"

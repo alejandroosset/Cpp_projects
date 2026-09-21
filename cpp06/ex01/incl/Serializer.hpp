@@ -6,19 +6,19 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:52:28 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/09/18 11:47:55 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/09/21 12:53:54 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
+#include <stdint.h>
 #include "Data.hpp"
-#include <cstdint>
 
 class Serializer
 {
-	private:
+	public:
 		// Constructors and destructors
         Serializer();
         Serializer(const Serializer& other);

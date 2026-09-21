@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 16:31:41 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/09/18 12:54:33 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/09/21 12:53:52 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <fstream>
-
+#include <string>
 class Data
 {
 	private:
