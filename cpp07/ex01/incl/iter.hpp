@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/22 18:05:03 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/09/22 18:05:04 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/09/22 18:05:42 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/09/22 18:51:22 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
-class Base
+#include <iostream>
+
+template <typename T1, typename T2, typename T3> class iter
 {
-    public:
-        virtual ~Base();
+	public:
+		T1 Adress;
+		T2 Length;
+		T3 TIter;
 };
 
 #endif

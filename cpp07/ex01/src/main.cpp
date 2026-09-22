@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/22 18:05:03 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/09/22 18:05:04 by aosset-o         ###   ########.fr       */
+/*   Created: 2026/09/22 18:05:45 by aosset-o          #+#    #+#             */
+/*   Updated: 2026/09/22 19:19:49 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#include "whatever.hpp"
 
-class Base
+int main( void ) 
 {
-    public:
-        virtual ~Base();
-};
-
-#endif
+	
+}
