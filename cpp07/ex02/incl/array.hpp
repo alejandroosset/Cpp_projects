@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 18:05:42 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/09/24 16:59:32 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/09/24 17:41:58 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <cstddef>
 #include <iostream>
 #include <string>
 
-template <typename TArray, typename TFunction>
-void iter(TArray *Array, const std::size_t Length, TFunction Function)
+template <typename T>
+class Array
 {
-	for (std::size_t i = 0; i < Length; i++)
-	{
-		Function(Array[i]);
-	}
-}
+	private:
+		T *Arr;
+		unsigned int Size;
+	public:
+		Array();
+		Array(unsigned int n);
+		Array(const Array& other);
+		Array& operator=(const Array& other);
+		~Array();
+};
+
 #endif
