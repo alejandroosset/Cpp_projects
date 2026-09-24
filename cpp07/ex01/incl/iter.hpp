@@ -13,14 +13,16 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 
+#include <cstddef>
 #include <iostream>
+#include <string>
 
-template <typename T1, typename T2, typename T3> class iter
+template <typename TArray, typename TFunction>
+void iter(TArray *Array, const std::size_t Length, TFunction Function)
 {
-	public:
-		T1 Adress;
-		T2 Length;
-		T3 TIter;
-};
-
+	for (std::size_t i = 0; i < Length; i++)
+	{
+		Function(Array[i]);
+	}
+}
 #endif
