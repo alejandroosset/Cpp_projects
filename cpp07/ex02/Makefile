@@ -6,7 +6,7 @@
 #    By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/08 17:48:53 by aosset-o          #+#    #+#              #
-#    Updated: 2026/09/22 19:20:07 by aosset-o         ###   ########.fr        #
+#    Updated: 2026/09/26 13:25:18 by aosset-o         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ RESET = \033[0m
 CXX=c++
 CXXFLAGS=-Wall -Wextra -Werror -std=c++98 -Iincl
 
-NAME = iter
+NAME = arr
 SRC = src/main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-HEADER = incl/iter.hpp
+HEADER = incl/array.hpp
 $(NAME): $(OBJ) 
 	@$(CXX) $(CXXFLAGS) -o $@ $^ 
 	@echo "$(NAME): $(GREEN)object files were created$(RESET)"

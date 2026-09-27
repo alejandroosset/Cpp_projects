@@ -24,9 +24,20 @@ Array<T>& Array<T>::operator=(const Array& other)
 {
     if (this != &other)
     {
-        this->Arr = other.Arr;
-        this->Size = other.size;
+        for (unsigned int i = 0; i < this->Size; i++)
+            this->Arr[i] = other.Arr[i];
+        this->Size = other.Size;
     }
 
     return(*this);
+}
+template <typename T>
+Array<T>::~Array()
+{
+    delete[] this->Arr;
+}
+template <typename T>
+unsigned int Array<T>::GetSize()
+{
+    return(this->Size);
 }

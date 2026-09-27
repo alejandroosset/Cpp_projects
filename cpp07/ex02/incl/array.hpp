@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 18:05:42 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/09/24 17:41:58 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/09/26 13:14:03 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ class Array
 		Array(const Array& other);
 		Array& operator=(const Array& other);
 		~Array();
+		
+		unsigned int GetSize();
 };
+
+#include "../src/array.tpp"
 
 #endif
