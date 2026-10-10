@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 18:05:42 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/09/26 13:14:03 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/10/10 11:06:18 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,17 @@ class Array
 		Array& operator=(const Array& other);
 		~Array();
 		
-		unsigned int GetSize();
+		unsigned int size() const;
+
+		//Excepciones
+		class OutOfBoundException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+
+		T &operator[](unsigned int i);
+		T const &operator[](unsigned int i) const;
 };
 
 #include "../src/array.tpp"
