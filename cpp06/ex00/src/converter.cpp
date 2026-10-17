@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:23:28 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/07/07 19:38:19 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/10/17 11:41:49 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void ConvertChar(std::string str)
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
-
 void ConvertInt(std::string str)
 {
 	long n = std::atol(str.c_str());
