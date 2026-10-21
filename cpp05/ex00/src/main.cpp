@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:35:05 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/06/12 12:09:33 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/10/14 17:38:31 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
 	//Decrementing too low exception
-	Bureaucrat a("Alice", 149);
+	Bureaucrat a("Alice", 151);
 
 	std::cout << a;
 
