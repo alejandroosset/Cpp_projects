@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 18:58:03 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/10/21 19:57:04 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/10/26 16:26:44 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,15 @@ Span::~Span()
 {
 	
 }
+
+const char *Span::ArrayCompleteException::what() const throw()
+{
+	return("The array is complete.");
+}
 void Span::addNumber(int n)
 {
-	if(this->Size < this->v.size())
-		std::cout << "añadir excepcion de no se puede añadir numero" << std::endl;
+	if(this->Size <= this->v.size())
+		throw ArrayCompleteException();
 	else
 		this->v.push_back(n);
 }
@@ -50,6 +55,17 @@ unsigned int Span:: longestSpan()
 
 unsigned int Span:: shortestSpan()
 {
-	std::cout << "hacer funcion short span" << std::endl;
-	return(0);
+	unsigned int span = this->longestSpan();
+	for (unsigned int i = 0; i < this->Size; i++)
+	{
+		for (unsigned int j = 0; j < this->Size; j++)
+		{
+			if (j != i)
+			{
+				if((unsigned int)(this->v[i] - this->v[j]) < span && this->v[i] - this->v[j] > 0)
+					span = this->v[i] - this->v[j];
+			}
+		}
+	}
+	return(span);
 }

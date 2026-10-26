@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 18:57:56 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/10/21 19:26:31 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/10/26 16:20:47 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,16 @@ class Span
         Span& operator=(const Span& other);
         ~Span();
 
+        // Excepciones
+        class ArrayCompleteException : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        
         // Functions
         void addNumber(int n);
         unsigned int shortestSpan();
-        unsigned int longestSpan();   
+        unsigned int longestSpan();
 };
 #endif
