@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 18:57:51 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/10/30 18:58:56 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/11/16 18:49:08 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char *av[])
 {
-    PmergeMe sort;
+    PmergeMe sort(ac - 1);
     try
     {
         sort.ParseInput(ac, av);
@@ -24,4 +24,7 @@ int main(int ac, char *av[])
         std::cerr << e.what() << '\n';
     }
     
+    sort.CreatePairs(av);
+    sort.SortPairs();
+    sort.PrintPairs();    
 }
