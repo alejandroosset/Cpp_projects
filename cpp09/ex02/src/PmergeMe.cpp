@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 
-// Funciones de la clase
+// Constructors and destructors
 PmergeMe::PmergeMe(int size)
 {
     this->size = size;
@@ -11,7 +11,46 @@ PmergeMe::~PmergeMe()
 
 }
 
-//Funciones auxiliares
+//External functions
+static void SortEachPair(std::vector< std::pair<int, int> > &pairs)
+{
+    int tmp;
+
+    for (size_t i = 0; i < pairs.size(); i++)
+    {
+        if (pairs[i].first > pairs[i].second)
+        {
+            tmp = pairs[i].first;
+            pairs[i].first = pairs[i].second;
+            pairs[i].second = tmp;
+        }
+    }
+}
+
+static void SortPairGroupsRecursive(std::vector< std::pair<int, int> > &pairs, size_t groupSize)
+{
+    size_t start;
+    size_t leftLast;
+    size_t rightLast;
+
+    if (groupSize == 0 || groupSize >= pairs.size())
+        return;
+    start = 0;
+    while (start + (groupSize * 2) <= pairs.size())
+    {
+        leftLast = start + groupSize - 1;
+        rightLast = start + (groupSize * 2) - 1;
+        if (pairs[leftLast].second > pairs[rightLast].second)
+        {
+            std::swap_ranges(pairs.begin() + start,
+                pairs.begin() + start + groupSize,
+                pairs.begin() + start + groupSize);
+        }
+        start += groupSize * 2;
+    }
+    SortPairGroupsRecursive(pairs, groupSize * 2);
+}
+//Auxiliar functions
 void PmergeMe::ParseInput(int ac, char *av[])
 {
     char *endptr = NULL;
@@ -53,16 +92,8 @@ void PmergeMe::CreatePairs(char *av[])
 
 void PmergeMe::SortPairs()
 {
-    int tmp;
-    for (size_t i = 0; i < this->vec.size(); i++)
-    {
-        if(this->vec[i].first > this->vec[i].second)
-        {
-            tmp = this->vec[i].first;
-            this->vec[i].first = this->vec[i].second;
-            this->vec[i].second = tmp;
-        }
-    }
+    SortEachPair(this->vec);
+    SortPairGroupsRecursive(this->vec, 1);
 }
 void PmergeMe::PrintPairs()
 {
