@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 18:57:47 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/11/16 18:34:56 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/11/25 19:55:14 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@
 #include <deque>
 #include <limits>
 
+struct Element
+{
+    int value;
+    int id;            
+};
 class PmergeMe
 {
     private:
-        std::vector< std::pair <int, int> >vec;
-        std::deque<int> deq;
         int size;
-        int pend;
+        std::vector<Element>vec;
     public:
         // Constructores y destructor
         PmergeMe(int size);
@@ -34,8 +37,10 @@ class PmergeMe
 		PmergeMe&	operator=(PmergeMe const&);
 
         void ParseInput(int ac, char *av[]);
-        void CreatePairs (char *av[]);
+        // Vector functions
+        void CreateVec (char *av[]);
         void SortPairs();
         void PrintPairs();
+        void FordJohnsonVec();
 };
 #endif

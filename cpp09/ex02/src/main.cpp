@@ -6,7 +6,7 @@
 /*   By: aosset-o <aosset-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 18:57:51 by aosset-o          #+#    #+#             */
-/*   Updated: 2026/11/16 18:49:08 by aosset-o         ###   ########.fr       */
+/*   Updated: 2026/11/25 19:28:38 by aosset-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int main(int ac, char *av[])
     {
         std::cerr << e.what() << '\n';
     }
-    
-    sort.CreatePairs(av);
+    sort.CreateVec(av);
     sort.SortPairs();
     sort.PrintPairs();    
 }

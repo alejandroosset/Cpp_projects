@@ -11,45 +11,6 @@ PmergeMe::~PmergeMe()
 
 }
 
-//External functions
-static void SortEachPair(std::vector< std::pair<int, int> > &pairs)
-{
-    int tmp;
-
-    for (size_t i = 0; i < pairs.size(); i++)
-    {
-        if (pairs[i].first > pairs[i].second)
-        {
-            tmp = pairs[i].first;
-            pairs[i].first = pairs[i].second;
-            pairs[i].second = tmp;
-        }
-    }
-}
-
-static void SortPairGroupsRecursive(std::vector< std::pair<int, int> > &pairs, size_t groupSize)
-{
-    size_t start;
-    size_t leftLast;
-    size_t rightLast;
-
-    if (groupSize == 0 || groupSize >= pairs.size())
-        return;
-    start = 0;
-    while (start + (groupSize * 2) <= pairs.size())
-    {
-        leftLast = start + groupSize - 1;
-        rightLast = start + (groupSize * 2) - 1;
-        if (pairs[leftLast].second > pairs[rightLast].second)
-        {
-            std::swap_ranges(pairs.begin() + start,
-                pairs.begin() + start + groupSize,
-                pairs.begin() + start + groupSize);
-        }
-        start += groupSize * 2;
-    }
-    SortPairGroupsRecursive(pairs, groupSize * 2);
-}
 //Auxiliar functions
 void PmergeMe::ParseInput(int ac, char *av[])
 {
@@ -73,34 +34,81 @@ void PmergeMe::ParseInput(int ac, char *av[])
         throw std::invalid_argument("Invalid number of arguments.");
 }
 
-void PmergeMe::CreatePairs(char *av[])
+// Vector functions
+void PmergeMe::CreateVec(char *av[])
 {
     int i = 1;
-    if(this->size % 2 != 0)
+    int id = 1;
+
+    while (i < this->size)
     {
-        this->pend = std::atoi(av[this->size - 1]);
-        this->size--;
-    }
-    
-    while (i < size)
-    {
-        this->vec.push_back(std::make_pair(std::atoi(av[i]), std::atoi(av[i + 1])));
+        Element first;
+        Element second;
+
+        first.value = std::atoi(av[i]);
+        first.id = id;
+        second.value = std::atoi(av[i + 1]);
+        second.id = id;
+
+        this->vec.push_back(first);
+        this->vec.push_back(second);
+
         i += 2;
+        id++;
     }
-    
+
+    if (i <= this->size)
+    {
+        Element pend;
+        pend.value = std::atoi(av[i]);
+        pend.id = 0;
+        this->vec.push_back(pend);
+    }
 }
 
 void PmergeMe::SortPairs()
 {
-    SortEachPair(this->vec);
-    SortPairGroupsRecursive(this->vec, 1);
+    for (size_t i = 0; i + 1 < this->vec.size(); i += 2)
+    {
+        if (this->vec[i].id == this->vec[i + 1].id
+            && this->vec[i].value > this->vec[i + 1].value)
+        {
+            int tmp = this->vec[i].value;
+            this->vec[i].value = this->vec[i + 1].value;
+            this->vec[i + 1].value = tmp;
+        }
+    }
 }
+
 void PmergeMe::PrintPairs()
 {
     for (size_t i = 0; i < this->vec.size(); i++)
-    {
-        std::cout << this->vec[i].first << " " <<this->vec[i].second << std::endl;
-    }
+        std::cout << this->vec[i].value << " id " << this->vec[i].id << std::endl;
+}
 
-    std::cout << "The size of the vector is " << this->vec.size() << std::endl;
+static void SortWinners(std::vector<Element> &Winners)
+{
+    for(int i = 0; i < Winners.size(); i++)
+    {
+        if(Winners[i].value > Winners[i + 1].value)
+        {
+            Element tmp = Winners[i];
+            Winners[i] = Winners[i + 1];
+            Winners[i + 1] = tmp;
+        }
+    }
+}
+void PmergeMe::FordJohnsonVec()
+{
+    std::vector<Element> Winners;
+    std::vector<Element> Loosers;
+    int i = 0;
+
+    while (i < this->size)
+    {
+        Loosers.push_back(this->vec[i]);
+        Winners.push_back(this->vec[i + 1]);
+        i += 2;
+    }
+    
 }
